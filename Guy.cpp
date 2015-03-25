@@ -71,7 +71,7 @@ case SDLK_RIGHT:
 xv=100;
 break;
 case SDLK_w:
-yv=-200
+yv=-200;
 break;
 case SDLK_a:
 xv=-100;

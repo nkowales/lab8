@@ -26,4 +26,4 @@ double xv;
 double yv;
 void loadTexture(string);
 };
-
+#endif /* GUY_H_ */
