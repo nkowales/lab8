@@ -9,7 +9,7 @@ tex = NULL;
 renderer = ren;
 loadTexture("mario.png");
 xpos = 300;
-ypos = 300;
+ypos = 500;
 xv = 0;
 yv = 0;
 }
@@ -32,15 +32,32 @@ tex = texture;
 void Guy::update(Uint32 time)
 {
 double secs = time / 1000.;
+if(ypos>600 && yv >=0)
+{
+ypos=600;
+yv=0;
+}
+if(ypos<40 && yv < 0)
+{
+ypos=40;
+yv=0;
+}if(xpos<40 && xv < 0)
+{
+xpos=40;
+xv=0;
+}
+
+if(xpos>600 && xv >=0)
+{
+xpos=600;
+xv=0;
+}
+
 
 xpos += xv * secs;
 ypos += yv * secs;
 yv += GRAVITY * secs;
-if (ypos > 590)
-{
-yv = 0;
-ypos=600;
-}
+
 }
 
 void Guy::draw()
@@ -61,8 +78,7 @@ if(e.type==SDL_KEYDOWN)
 switch(e.key.keysym.sym)
 {
 case SDLK_UP:
-if(ypos==600)
-yv=-200;
+yv=-300;
 break; 
 case SDLK_LEFT:
 xv=-100;
@@ -71,7 +87,7 @@ case SDLK_RIGHT:
 xv=100;
 break;
 case SDLK_w:
-yv=-200
+yv=-300;
 break;
 case SDLK_a:
 xv=-100;
